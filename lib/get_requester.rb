@@ -9,9 +9,10 @@ class GetRequester
   end
   
   def get_response_body 
-    data_request = GetRequester.new (url)
-    
-    
+    request_url = GetRequester.new (url)
+    uri=URI.parse(requested_url)
+    get_response= Net::HTTP.get_response(uri)
+    get_response.body
   end
   
   def parse_json 
